@@ -7,7 +7,7 @@ config = {
 	"attacker_site": b"owlhut.com",
 	"legitimate_site": b"facebook.com",
 	"victim_address": b"abelyang227@protonmail.com",
-	"case_id": b"case_a4",
+	"case_id": b"case_b1",
 }
 
 def fixup_test_case_data(t):
