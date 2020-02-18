@@ -37,7 +37,7 @@ test_cases = {
         "data": {
             "from_header": b"From: <security@legitimate.com>,\r\n\t<security2@legitimate.com>,\r\n\t<security3@legitimate.com>\r\n",
             "to_header": b"To: <victim@victim.com>\r\n",
-            "subject_header": b"Multiple from in addr-specs without Sender\r\n",
+            "subject_header": b"Subject: Multiple from in addr-specs without Sender\r\n",
             "body": b"Hi, fake body here.\r\n",
             "other_headers": b"Date: " + get_date() + b"\r\n" + b'Content-Type: text/plain; charset="UTF-8"\r\nMIME-Version: 1.0\r\nMessage-ID: <1538085644648.096e3d4e-bc38-4027-b57e-' + id_generator() + b'@message-ids.attack.com>\r\nlast:value\r\n\r\n',
         }
@@ -56,14 +56,14 @@ test_cases = {
         }
     },
     "case_b3": {
-        "case_name":b"Multiple from in header name with Sender\r\n",
+        "case_name":b"Multiple from in addr-specswith Sender\r\n",
         "helo": b"attack.com",
         "mailfrom": b"<test@a.attack.com>",
         "rcptto": b"<victim@victim.com>",
         "data": {
             "from_header": b"From: <security@legitimate.com>,\r\n\t<security2@legitimate.com>,\r\n\t<security3@legitimate.com>\r\nSender: <sender@legitimate.com>\r\n",
             "to_header": b"To: <victim@victim.com>\r\n",
-            "subject_header": b"Subject: Multiple from\r\n",
+            "subject_header": b"Subject: Multiple from in addr-specswith Sender\r\n",
             "body": b"Hi, fake body here.\r\n",
             "other_headers": b"Date: " + get_date() + b"\r\n" + b'Content-Type: text/plain; charset="UTF-8"\r\nMIME-Version: 1.0\r\nMessage-ID: <1538085644648.096e3d4e-bc38-4027-b57e-' + id_generator() + b'@message-ids.attack.com>\r\nlast:value\r\n\r\n',
         }

