@@ -1,0 +1,89 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+Plugin 'scrooloose/nerdtree'
+"
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+"去掉vi的一致性"
+"set nocompatible
+""顯示行號"
+set number
+" 隱藏滾動條"    
+" set guioptions-=r 
+" set guioptions-=L
+" set guioptions-=b
+" "隱藏頂部標簽欄"
+" set showtabline=0
+" "設置字體"
+set guifont=Monaco:h13         
+syntax on   "開啟語法高亮"
+let g:solarized_termcolors=256  "solarized主題設置在終端下的設置"
+set background=dark     "設置背景色"
+" colorscheme solarized
+set nowrap  "設置不折行"
+set fileformat=unix "設置以unix的格式保存文件"
+set cindent     "設置C樣式的縮進格式"
+set tabstop=4   "設置table長度"
+set shiftwidth=4        "同上"
+set showmatch   "顯示匹配的括號"
+set scrolloff=5     "距離頂部和底部5行"
+set laststatus=2    "命令行為兩行"
+set fenc=utf-8      "文件編碼"
+set backspace=2
+set mouse-=a     "啟用鼠標"
+set selection=exclusive
+set selectmode=mouse,key
+set matchtime=5
+set ignorecase      "忽略大小寫"
+set incsearch
+set hlsearch        "高亮搜索項"
+set noexpandtab     "不允許擴展table"
+set whichwrap+=<,>,h,l
+set autoread
+set cursorline      "突出顯示當前行"
+set cursorcolumn        "突出顯示當前列"
+
+
+set pastetoggle=<F2>
+map <F3> :NERDTreeMirror<CR>
+map <F3> :NERDTreeToggle<CR>
