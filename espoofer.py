@@ -5,8 +5,15 @@ from common.mailsender import mailsender
 
 import testcases
 
+config2 = {
+	#"attacker_site": b"owlhut.com",
+	"attacker_site": b"mail2.abelyang.com",
+	"legitimate_site": b"facebook.com",
+	"victim_address": b"abelyang227+test@mail.abelyang.com",
+	"case_id": b"case_b1",
+}
 config = {
-	"attacker_site": b"owlhut.com",
+	"attacker_site": b"mail.abelyang.com",
 	"legitimate_site": b"facebook.com",
 	"victim_address": b"abelyang227+test@protonmail.com",
 	"case_id": b"case_b1",
@@ -26,9 +33,9 @@ def build_email(case_id):
 	if dkim_para != None:
 		dkim_msg =   dkim_para["sign_header"] +b"\r\n\r\n" + msg_content["body"]
 		dkim_header = generate_dkim_header(dkim_msg, dkim_para)
-		msg = msg_content["from_header"] + dkim_header + msg_content["to_header"] + msg_content["subject_header"] + msg_content["other_headers"] + msg_content["body"]
+		msg = msg_content["from_header"] + dkim_header + msg_content["to_header"] + msg_content["subject_header"] + msg_content["custom"] + msg_content["other_headers"] + msg_content["body"]
 	else:
-		msg = msg_content["from_header"] + msg_content["to_header"] + msg_content["subject_header"] + msg_content["other_headers"] + msg_content["body"]
+		msg = msg_content["from_header"] + msg_content["to_header"] + msg_content["subject_header"] + msg_content["custom"] + msg_content["other_headers"] + msg_content["body"]
 	return msg
 
 def build_smtp_seqs(case_id):
@@ -44,7 +51,7 @@ def main():
     case_list = ["a4","a7","b1","b2","b3","b4"]
     for s in case_list:
 	#cmd_seqs = build_smtp_seqs(config["case_id"].decode("utf-8"))
-        print(test_cases["case_"+s]["case_name"].decode("utf-8"))
+        print("\n\n####   " + test_cases["case_"+s]["case_name"].decode("utf-8")+ "####\n")
         cmd_seqs = build_smtp_seqs("case_"+s)
         mail_server = get_mail_server_from_email(config["victim_address"])
         mail_sender = mailsender()
