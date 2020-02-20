@@ -12,9 +12,9 @@ config2 = {
 	"case_id": b"case_b1",
 }
 config = {
-	"attacker_site": b"mail2.abelyang.com",
+	"attacker_site": b"mail1.abelyang.com",
 	"legitimate_site": b"mail2.abelyang.com",
-	"victim_address": b"abelyang227+test@protonmail.com",
+	"victim_address": b"abelyang227+test@mail.abelyang.com",
 	"case_id": b"case_b1",
 }
 
@@ -34,8 +34,7 @@ def build_email(case_id):
 		dkim_header = generate_dkim_header(dkim_msg, dkim_para)
 		msg = msg_content["from_header"] + dkim_header + msg_content["to_header"] + msg_content["subject_header"] + msg_content["custom"] + msg_content["other_headers"] + msg_content["body"]
 	else:
-            #msg = msg_content["from_header"] + msg_content["to_header"] + b"Subject: " +test_cases[case_id]["case_name"] + msg_content["subject_header"] + msg_content["custom"] + msg_content["other_headers"] + msg_content["body"]
-            msg = msg_content["from_header"] + msg_content["to_header"] + b"Subject: " + case_id.encode("utf-8") + b": "+test_cases[case_id]["case_name"] + msg_content["custom"] + msg_content["other_headers"] + msg_content["body"]
+		msg = msg_content["from_header"] + msg_content["to_header"] + b"Subject: " + case_id.encode("utf-8") + b": "+test_cases[case_id]["case_name"]+ msg_content["custom"] + msg_content["other_headers"] + msg_content["body"]
 	return msg
 
 def build_smtp_seqs(case_id):
@@ -49,8 +48,17 @@ def build_smtp_seqs(case_id):
 
 def main():
     case_list = ["a4"]
-    case_list = ["6e","6a","6b","6c","6d","6f"]
-    case_list = ["6d"]
+
+	# Different cases of inconsistent interpretation of From header between email servers and MUAs
+    case_list_diff_from = ["6a","6b","6c","6e","6d","6f"] 	# 6e is our case, but after rcptpolicyd release, it can't be reproduced
+
+	# Figure 8: Different cases of inconsistent interpretations of email addresses between email servers and MUAs.
+    case_list_diff_cs = ["8a","8b","8d","8e","8f"]  		# exclude 8c due to obsolete already
+
+	# custom cases
+    case_list_our_own = ["00","1a","1b","1c","1d","1e"]			# customize our own testcase here
+
+    case_list = case_list_our_own + case_list_diff_from + case_list_diff_cs
     for s in case_list:
 	#cmd_seqs = build_smtp_seqs(config["case_id"].decode("utf-8"))
         print("\n\n####   " + test_cases["case_"+s]["case_name"].decode("utf-8")+ "\n")

@@ -1,6 +1,20 @@
 from common.common import *
 
 test_cases = {
+    "case_00": {
+        "case_name":b"Normail mail, everything should be OK\r\n",
+        "helo": b"attack.com",
+        "mailfrom": b"<test@attack.com>",
+        "rcptto": b"<victim@victim.com>",
+        "data": {
+            "from_header": b"From: <any@attack.com>\r\n",
+            "to_header": b"To: <victim@victim.com>\r\n",
+            "subject_header": b"Subject: fake subject here\r\n",
+            "body": b"Hi, fake body here.\r\n",
+            "custom": b"",
+            "other_headers": b"Date: " + get_date() + b"\r\n" + b'Content-Type: text/plain; charset="UTF-8"\r\nMIME-Version: 1.0\r\nMessage-ID: <1538085644648.096e3d4e-bc38-4027-b57e-' + id_generator() + b'@message-ids.attack.com>\r\nlast:value\r\n\r\n',
+        }
+    },
     "case_a4": { # An example of DKIM authentication injection attack
         "case_name":b"DKIM authentication injection attack\r\n",
         "helo": b"attack.com",
@@ -41,7 +55,7 @@ test_cases = {
             "to_header": b"To: <victim@victim.com>\r\n",
             "subject_header": b"Subject: fake subject here\r\n",
             "body": b"Hi, fake body here.\r\n",
-            "custom": b"",
+            "custom": b"Sender: <admin-sender@legitimate.com>\r\n",
             "other_headers": b"Date: " + get_date() + b"\r\n" + b'Content-Type: text/plain; charset="UTF-8"\r\nMIME-Version: 1.0\r\nMessage-ID: <1538085644648.096e3d4e-bc38-4027-b57e-' + id_generator() + b'@message-ids.attack.com>\r\nlast:value\r\n\r\n',
         }
     },
@@ -102,12 +116,12 @@ test_cases = {
         }
     },
     "case_6f": {
-        "case_name":b"Combine multiple techniques to bypass Gmail validation.",
+        "case_name":b"Combine multiple techniques to bypass Gmail validation.\r\n",
         "helo": b"attack.com",
         "mailfrom": b"<>",
         "rcptto": b"<victim@victim.com>",
         "data": {
-            "from_header": b" From: <any@attack.com>\r\nResent-From: <admin@legitimate.com>\r\n",
+            "from_header": b"From: <any@attack.com>\r\nResent-From: <admin@legitimate.com>\r\n",
             "to_header": b"To: <victim@victim.com>\r\n",
             "subject_header": b"Subject: fake subject here\r\n",
             "body": b"Hi, fake body here.\r\n",
@@ -116,61 +130,151 @@ test_cases = {
         }
     },
     "case_1a": {
-        "case_name":b"From with double address + Sender + Resent-From",
+        "case_name":b"From with double address + Sender + Resent-From\r\n",
         "helo": b"attack.com",
         "mailfrom": b"<test@attack.com>",
         "rcptto": b"<victim@victim.com>",
         "data": {
-            "from_header": b" From: <any@attack.com>\r\n\t<any2@attack.com\r\nResent-From: <admin-resent@legitimate.com>\r\n",
+            "from_header": b"From: <any@attack.com>\r\n\t<any2@attack.com>\r\nResent-From: <admin-resent@legitimate.com>\r\n",
             "to_header": b"To: <victim@victim.com>\r\n",
             "subject_header": b"Subject: fake subject here\r\n",
             "body": b"Hi, fake body here.\r\n",
-            "custom": b"Sender: <admin-sender@legitimate.com",
+            "custom": b"Sender: <admin-sender@legitimate.com>\r\n",
             "other_headers": b"Date: " + get_date() + b"\r\n" + b'Content-Type: text/plain; charset="UTF-8"\r\nMIME-Version: 1.0\r\nMessage-ID: <1538085644648.096e3d4e-bc38-4027-b57e-' + id_generator() + b'@message-ids.attack.com>\r\nlast:value\r\n\r\n',
         }
     },
     "case_1b": {
-        "case_name":b"From address with comment + Sender ",
+        "case_name":b"From address with comment + Sender \r\n",
         "helo": b"attack.com",
         "mailfrom": b"<test@attack.com>",
         "rcptto": b"<victim@victim.com>",
         "data": {
-            "from_header": b" From: <any(comment)@attack.com>@legitimate.com\r\n",
-            "to_header": b"To: <victim@victim.com(comment)>\r\n",
+            "from_header": b"From: <any(comment@attack.com>)@legitimate.com>\r\n",
+            "to_header": b"To: <victim@victim.com>\r\n",
             "subject_header": b"Subject: fake subject here\r\n",
             "body": b"Hi, fake body here.\r\n",
-            "custom": b"Sender: <admin-sender@legitimate.com",
+            "custom": b"Sender: <sender@legitimate.com>\r\n",
             "other_headers": b"Date: " + get_date() + b"\r\n" + b'Content-Type: text/plain; charset="UTF-8"\r\nMIME-Version: 1.0\r\nMessage-ID: <1538085644648.096e3d4e-bc38-4027-b57e-' + id_generator() + b'@message-ids.attack.com>\r\nlast:value\r\n\r\n',
         }
     },
     "case_1c": {
-        "case_name":b"From address with comment + Sender ",
+        "case_name":b"From address with comment + Sender \r\n",
         "helo": b"attack.com",
         "mailfrom": b"<test@attack.com>",
         "rcptto": b"<victim@victim.com>",
         "data": {
-            "from_header": b" From: <any(comment@attack.com>)@legitimate.com\r\n",
-            "to_header": b"To: <victim@victim.com(comment)>\r\n",
+            "from_header": b"From: <any(comment@attack.com>)@legitimate.com>\r\n",
+            "to_header": b"To: <victim@victim.com>\r\n",
             "subject_header": b"Subject: fake subject here\r\n",
             "body": b"Hi, fake body here.\r\n",
-            "custom": b"Sender: <admin-sender@legitimate.com",
+            "custom": b"Sender: <admin-sender@legitimate.com\r\n",
             "other_headers": b"Date: " + get_date() + b"\r\n" + b'Content-Type: text/plain; charset="UTF-8"\r\nMIME-Version: 1.0\r\nMessage-ID: <1538085644648.096e3d4e-bc38-4027-b57e-' + id_generator() + b'@message-ids.attack.com>\r\nlast:value\r\n\r\n',
         }
     },
     "case_1d": {
-        "case_name":b"Display name in From with comment",
+        "case_name":b"Display name in From with comment\r\n",
         "helo": b"attack.com",
         "mailfrom": b"<test@attack.com>",
         "rcptto": b"<victim@victim.com>",
         "data": {
-            "from_header": b" From: \"display(@abc.com)\" <any@attack.com>\r\n",
+            "from_header": b"From: \"display(@abc.com)\" <any@attack.com>\r\n",
             "to_header": b"To: <victim@victim.com(comment)>\r\n",
             "subject_header": b"Subject: fake subject here\r\n",
             "body": b"Hi, fake body here.\r\n",
-            "custom": b"Sender: <admin-sender@legitimate.com",
+            "custom": b"",
             "other_headers": b"Date: " + get_date() + b"\r\n" + b'Content-Type: text/plain; charset="UTF-8"\r\nMIME-Version: 1.0\r\nMessage-ID: <1538085644648.096e3d4e-bc38-4027-b57e-' + id_generator() + b'@message-ids.attack.com>\r\nlast:value\r\n\r\n',
         }
     },
+    "case_1e": {
+        "case_name": b"Unbalance from address angle bracket\r\n",
+        "helo": b"attack.com",
+        "mailfrom": b"<test@attack.com>",
+        "rcptto": b"<victim@victim.com>",
+        "data": {
+            "from_header": b"From: <any@attack.com\r\n",
+            "to_header": b"To: <victim@victim.com>\r\n",
+            "subject_header": b"Subject: fake subject here\r\n",
+            "body": b"Hi, fake body here.\r\n",
+            "custom": b"",
+            "other_headers": b"Date: " + get_date() + b"\r\n" + b'Content-Type: text/plain; charset="UTF-8"\r\nMIME-Version: 1.0\r\nMessage-ID: <1538085644648.096e3d4e-bc38-4027-b57e-' + id_generator() + b'@message-ids.attack.com>\r\nlast:value\r\n\r\n',
+        }
+    },
+
+    "case_8a": {
+        "case_name": b"Preference of multiple email addresses.\r\n",
+        "helo": b"attack.com",
+        "mailfrom": b"<test@attack.com>",
+        "rcptto": b"<victim@victim.com>",
+        "data": {
+            "from_header": b"From: <any@attack.com>,<admin@legitimate.com>\r\n",
+            "to_header": b"To: <victim@victim.com>\r\n",
+            "subject_header": b"Subject: fake subject here\r\n",
+            "body": b"Hi, fake body here.\r\n",
+            "custom": b"",
+            "other_headers": b"Date: " + get_date() + b"\r\n" + b'Content-Type: text/plain; charset="UTF-8"\r\nMIME-Version: 1.0\r\nMessage-ID: <1538085644648.096e3d4e-bc38-4027-b57e-' + id_generator() + b'@message-ids.attack.com>\r\nlast:value\r\n\r\n',
+        }
+    },
+    "case_8b": {
+        "case_name": b"Differences in parsing Base64-encoded address.\r\n",
+        "helo": b"attack.com",
+        "mailfrom": b"<test@attack.com>",
+        "rcptto": b"<victim@victim.com>",
+        "data": {
+            "from_header": b"=?UTF-8?B?dGVzdA=?= ( <admin@legitimate.com> ), <any@attack.com>\r\n",
+            "to_header": b"To: <victim@victim.com>\r\n",
+            "subject_header": b"Subject: fake subject here\r\n",
+            "body": b"Hi, fake body here.\r\n",
+            "custom": b"",
+            "other_headers": b"Date: " + get_date() + b"\r\n" + b'Content-Type: text/plain; charset="UTF-8"\r\nMIME-Version: 1.0\r\nMessage-ID: <1538085644648.096e3d4e-bc38-4027-b57e-' + id_generator() + b'@message-ids.attack.com>\r\nlast:value\r\n\r\n',
+        }
+    },
+
+    "case_8d": {
+        "case_name": b"Differences in supporting quoted-pair feature.",
+        "helo": b"attack.com",
+        "mailfrom": b"<test@attack.com>",
+        "rcptto": b"<victim@victim.com>",
+        "data": {
+            "from_header": b"<admin@legitimate.com>\, <any@attack.com>\r\n",
+            "to_header": b"To: <victim@victim.com>\r\n",
+            "subject_header": b"Subject: fake subject here\r\n",
+            "body": b"Hi, fake body here.\r\n",
+            "custom": b"",
+            "other_headers": b"Date: " + get_date() + b"\r\n" + b'Content-Type: text/plain; charset="UTF-8"\r\nMIME-Version: 1.0\r\nMessage-ID: <1538085644648.096e3d4e-bc38-4027-b57e-' + id_generator() + b'@message-ids.attack.com>\r\nlast:value\r\n\r\n',
+        }
+    },
+
+    "case_8e": {
+        "case_name": b"Inconsistencies in recognizing special character precedence.",
+        "helo": b"attack.com",
+        "mailfrom": b"<test@attack.com>",
+        "rcptto": b"<victim@victim.com>",
+        "data": {
+            "from_header": b"From: admin@legitimate.com, <any@attack.com>\r\n",
+            "to_header": b"To: <victim@victim.com>\r\n",
+            "subject_header": b"Subject: fake subject here\r\n",
+            "body": b"Hi, fake body here.\r\n",
+            "custom": b"",
+            "other_headers": b"Date: " + get_date() + b"\r\n" + b'Content-Type: text/plain; charset="UTF-8"\r\nMIME-Version: 1.0\r\nMessage-ID: <1538085644648.096e3d4e-bc38-4027-b57e-' + id_generator() + b'@message-ids.attack.com>\r\nlast:value\r\n\r\n',
+        }
+    },
+    "case_8f": {
+        "case_name": b"Display name and real address parsing ambiguity.\r\n",
+        "helo": b"attack.com",
+        "mailfrom": b"<test@attack.com>",
+        "rcptto": b"<victim@victim.com>",
+        "data": {
+            "from_header": b"From: <any@attack.com>admin@legitimate.com\r\n",
+            "to_header": b"To: <victim@victim.com>\r\n",
+            "subject_header": b"Subject: fake subject here\r\n",
+            "body": b"Hi, fake body here.\r\n",
+            "custom": b"",
+            "other_headers": b"Date: " + get_date() + b"\r\n" + b'Content-Type: text/plain; charset="UTF-8"\r\nMIME-Version: 1.0\r\nMessage-ID: <1538085644648.096e3d4e-bc38-4027-b57e-' + id_generator() + b'@message-ids.attack.com>\r\nlast:value\r\n\r\n',
+        }
+    },
+
+
+
 
 
 
