@@ -1,0 +1,792 @@
+
+
+####   Normail mail, everything should be OK
+
+
+220 mailin013.protonmail.ch ESMTP Postfix
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From: <any@mail1.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_00: Normail mail, everything should be OK
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-RIMI7A@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as C81E53000243
+221 2.0.0 Bye
+
+
+####   From with double address + Sender + Resent-From
+
+
+220 mailin007.protonmail.ch ESMTP Postfix
+250-mailin007.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin007.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From: <any@mail1.abelyang.com>
+	<any2@mail1.abelyang.com>
+Resent-From: <admin-resent@mail2.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_1a: From with double address + Sender + Resent-From
+Sender: <admin-sender@mail2.abelyang.com>
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-88NTCV@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as 6FABD3000256
+221 2.0.0 Bye
+
+
+####   From address with comment + Sender 
+
+
+220 mailin013.protonmail.ch ESMTP Postfix
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From: <any(comment@mail1.abelyang.com>)@mail2.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_1b: From address with comment + Sender 
+Sender: <sender@mail2.abelyang.com>
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-PIH5WI@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as 15B943000242
+221 2.0.0 Bye
+
+
+####   From address with comment + Sender 
+
+
+220 mailin013.protonmail.ch ESMTP Postfix
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From: <any(comment@mail1.abelyang.com>)@mail2.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_1c: From address with comment + Sender 
+Sender: <admin-sender@mail2.abelyang.com
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-IN127A@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as 9A1CF3000244
+221 2.0.0 Bye
+
+
+####   Display name in From with comment
+
+
+220 mailin013.protonmail.ch ESMTP Postfix
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From: "display(@abc.com)" <any@mail1.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com(comment)>
+Subject: case_1d: Display name in From with comment
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-QGKTK9@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as 3C5C4300024B
+221 2.0.0 Bye
+
+
+####   Unbalance from address angle bracket
+
+
+220 mailin010.protonmail.ch ESMTP Postfix
+250-mailin010.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin010.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From: <any@mail1.abelyang.com
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_1e: Unbalance from address angle bracket
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-GGIF1I@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as 044C9300024A
+221 2.0.0 Bye
+
+
+####   Preference of multiple From headers
+
+
+220 mailin005.protonmail.ch ESMTP Postfix
+250-mailin005.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin005.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From: <any@mail1.abelyang.com>
+From: <admin@@mail2.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_6a: Preference of multiple From headers
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-G6QUYX@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as 816AF4010073
+221 2.0.0 Bye
+
+
+####   Inconsistent interpretation in folding-space-succeeded From header.
+
+
+220 mailin007.protonmail.ch ESMTP Postfix
+250-mailin007.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin007.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From
+ :<any@mail1.abelyang.com>
+From: <admin@mail2.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_6b: Inconsistent interpretation in folding-space-succeeded From header.
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-YW05LL@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as 2A74F3000262
+221 2.0.0 Bye
+
+
+####   Exploiting normalization behavior with space-succeeded From header.
+
+
+220 mailin011.protonmail.ch ESMTP Postfix
+250-mailin011.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin011.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From: <admin@mail1.abelyang.com>
+From :<admin@mail2.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_6c: Exploiting normalization behavior with space-succeeded From header.
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-5MR4C6@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as C67B9401007F
+221 2.0.0 Bye
+
+
+####   Exploiting normalization behavior with multiple email addresses.
+
+
+220 mailin013.protonmail.ch ESMTP Postfix
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From: <any@mail1.abelyang.com>,
+	<any2@mail1.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_6e: Exploiting normalization behavior with multiple email addresses.
+Sender: <admin-sender@mail2.abelyang.com>
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-4ZIOIH@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as 92592300024A
+221 2.0.0 Bye
+
+
+####   Interpreting Sender header as From alternative header.
+
+
+220 mailin013.protonmail.ch ESMTP Postfix
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From
+ :<any@mail1.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_6d: Interpreting Sender header as From alternative header.
+Sender: <admin@mail2.abelyang.com>
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-65XOH8@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as 1EBDF300024B
+221 2.0.0 Bye
+
+
+####   Combine multiple techniques to bypass Gmail validation.
+
+
+220 mailin013.protonmail.ch ESMTP Postfix
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From: <any@mail1.abelyang.com>
+Resent-From: <admin@mail2.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_6f: Combine multiple techniques to bypass Gmail validation.
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-D102PL@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as BA8473000251
+221 2.0.0 Bye
+
+
+####   Preference of multiple email addresses.
+
+
+220 mailin013.protonmail.ch ESMTP Postfix
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From: <any@mail1.abelyang.com>,<admin@mail2.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_8a: Preference of multiple email addresses.
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-5FTCJ3@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as 65EB83000262
+221 2.0.0 Bye
+
+
+####   Differences in parsing Base64-encoded address.
+
+
+220 mailin004.protonmail.ch ESMTP Postfix
+250-mailin004.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin004.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+=?UTF-8?B?dGVzdA=?= ( <admin@mail2.abelyang.com> ), <any@mail1.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_8b: Differences in parsing Base64-encoded address.
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-BWASAO@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as 2D1C3401008C
+221 2.0.0 Bye
+
+
+####   Differences in supporting quoted-pair feature.
+
+220 mailin006.protonmail.ch ESMTP Postfix
+250-mailin006.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin006.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+<admin@mail2.abelyang.com>\, <any@mail1.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_8d: Differences in supporting quoted-pair feature.Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-EADB3U@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as AE6D84010081
+221 2.0.0 Bye
+
+
+####   Inconsistencies in recognizing special character precedence.
+
+220 mailin015.protonmail.ch ESMTP Postfix
+250-mailin015.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin015.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From: admin@mail2.abelyang.com, <any@mail1.abelyang.com>
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_8e: Inconsistencies in recognizing special character precedence.Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-4ZKYVO@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as 728D53000253
+221 2.0.0 Bye
+
+
+####   Display name and real address parsing ambiguity.
+
+
+220 mailin013.protonmail.ch ESMTP Postfix
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+220 2.0.0 Ready to start TLS
+ehlo mail1.abelyang.com
+
+250-mailin013.protonmail.ch
+250-PIPELINING
+250-SIZE 36480000
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 CHUNKING
+mail from: <test@mail1.abelyang.com>
+
+250 2.1.0 Ok
+rcpt to: <abelyang227+test@mail.abelyang.com>
+
+250 2.1.5 Ok
+data
+
+354 End data with <CR><LF>.<CR><LF>
+From: <any@mail1.abelyang.com>admin@mail2.abelyang.com
+To: <abelyang227+test@mail.abelyang.com>
+Subject: case_8f: Display name and real address parsing ambiguity.
+Date: Thu, 20 Feb 2020 11:26:32 +0000
+Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Message-ID: <1538085644648.096e3d4e-bc38-4027-b57e-1D6NZO@message-ids.mail1.abelyang.com>
+last:value
+
+Hi, fake body here.
+
+.
+
+250 2.0.0 Ok: queued as F1B4A3000273
+221 2.0.0 Bye

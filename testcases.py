@@ -220,7 +220,7 @@ test_cases = {
         "mailfrom": b"<test@attack.com>",
         "rcptto": b"<victim@victim.com>",
         "data": {
-            "from_header": b"=?UTF-8?B?dGVzdA=?= ( <admin@legitimate.com> ), <any@attack.com>\r\n",
+            "from_header": b"From: =?UTF-8?B?dGVzdA=?= ( <admin@legitimate.com> ), <any@attack.com>\r\n",
             "to_header": b"To: <victim@victim.com>\r\n",
             "subject_header": b"Subject: fake subject here\r\n",
             "body": b"Hi, fake body here.\r\n",
@@ -230,12 +230,12 @@ test_cases = {
     },
 
     "case_8d": {
-        "case_name": b"Differences in supporting quoted-pair feature.",
+        "case_name": b"Differences in supporting quoted-pair feature.\r\n",
         "helo": b"attack.com",
         "mailfrom": b"<test@attack.com>",
         "rcptto": b"<victim@victim.com>",
         "data": {
-            "from_header": b"<admin@legitimate.com>\, <any@attack.com>\r\n",
+            "from_header": b"From: <admin@legitimate.com>\, <any@attack.com>\r\n",
             "to_header": b"To: <victim@victim.com>\r\n",
             "subject_header": b"Subject: fake subject here\r\n",
             "body": b"Hi, fake body here.\r\n",
@@ -245,7 +245,7 @@ test_cases = {
     },
 
     "case_8e": {
-        "case_name": b"Inconsistencies in recognizing special character precedence.",
+        "case_name": b"Inconsistencies in recognizing special character precedence.\r\n",
         "helo": b"attack.com",
         "mailfrom": b"<test@attack.com>",
         "rcptto": b"<victim@victim.com>",
