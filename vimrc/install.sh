@@ -1,9 +1,10 @@
 #!/bin/bash
 
-sudo apt install git curl python3-pip exuberant-ctags ack-grep -y
+sudo apt install git curl python3-pip exuberant-ctags ack-grep vim -y
 sudo pip3 install pynvim flake8 pylint isort
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git config --global core.editor vim
+
 cat <EOF >~/.vimrc
 " Fisa-vim-config, a config for both Vim and NeoVim
 " http://vim.fisadev.com
@@ -467,3 +468,7 @@ endif
 set paste
 
 EOF
+
+vim +PluginInstall +qall -f
+
+# Haven't test yet
